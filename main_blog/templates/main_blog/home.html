@@ -1,6 +1,12 @@
 {% extends "main_blog/base.html" %} {% block content %} {% for post in posts %}
-<h2>Created by {{post.author}}</h2>
-<p>on {{post.date_posted}}</p>
-<p>titled {{post.title}}</p>
-<p>describing about {{post.content}}</p>
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2 text-decoration-none" href="#">{{ post.author }}</a>
+      <small class="text-muted">{{ post.date_posted | date: "F d, Y" }}</small>
+    </div>
+    <h4><a class="article-title text-decoration-none" href="#">{{ post.title }}</a></h4>
+    <p class="article-content">{{ post.content }}</p>
+  </div>
+</article>
 {% endfor %} {% endblock content %}
