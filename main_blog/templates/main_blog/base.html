@@ -39,12 +39,24 @@
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{% url 'main-blog-home' %}">Home</a>
               <a class="nav-item nav-link" href="{% url 'main-blog-about'%}">About</a>
-            </div>
+          </div>
             <!-- Navbar Right Side -->
-            <div class="navbar-nav ms-auto">
-              <a class="nav-item nav-link" href="#">Login</a>
-              <a class="nav-item nav-link" href="#">Register</a>
+             {% if user.is_authenticated %}
+             <div class="navbar-nav ms-auto">
+             <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a> 
+             <form method="POST" action="{% url 'logout' %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-link nav-item nav-link" style="padding: 0; border: none; background: none;">
+                        Logout
+                    </button>
+              </form>
             </div>
+             {% else %}
+             <div class="navbar-nav ms-auto">
+              <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+              <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+            </div>
+             {% endif %}
           </div>
         </div>
       </nav>
