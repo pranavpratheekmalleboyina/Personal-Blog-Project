@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 from main_blog import admin
 from . import views
 
