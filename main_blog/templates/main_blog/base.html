@@ -42,11 +42,14 @@
           </div>
             <!-- Navbar Right Side -->
              {% if user.is_authenticated %}
+             <div class="navbar-nav mr-auto">
+             <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+             </div>
              <div class="navbar-nav ms-auto">
-             <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a> 
-             <form method="POST" action="{% url 'logout' %}" style="display: inline;">
+             <a class="nav-item nav-link" href="{% url 'profile' %}">{{ user }}</a> 
+             <form method="POST" action="{% url 'logout' %}">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-link nav-item nav-link" style="padding: 0; border: none; background: none;">
+                    <button type="submit" class="btn btn-link nav-item nav-link">
                         Logout
                     </button>
               </form>

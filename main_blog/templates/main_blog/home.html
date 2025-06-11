@@ -1,13 +1,15 @@
 {% extends "main_blog/base.html" %} {% block content %} {% for post in posts %}
 <article class="media content-section">
+  {% comment %} {% if post.author == user %}  {% endcomment %}
   <div class="media-body">
     <div class="article-metadata">
       <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
       <a class="mr-2 text-decoration-none" href="#">{{ post.author }}</a>
       <small class="text-muted">{{ post.date_posted|date:"F d, Y"}}</small>
     </div>
-    <h4><a class="article-title text-decoration-none" href="#">{{ post.title }}</a></h4>
+    <h4><a class="article-title text-decoration-none" href="{% url 'post-detail' post.id %} ">{{ post.title }}</a></h4>
     <p class="article-content">{{ post.content }}</p>
   </div>
+  {% comment %} {% endif %}  {% endcomment %}
 </article>
 {% endfor %} {% endblock content %}
