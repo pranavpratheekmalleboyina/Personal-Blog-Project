@@ -1,0 +1,33 @@
+{% extends "main_blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %} 
+<div class="content-section">
+    <form method ='POST'>
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">
+                Blog Posts
+            </legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">
+                Post
+            </button>
+        </div>
+    </form>
+</div>
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+{% if form.errors %}
+  <div class="alert alert-danger">
+    {{ form.errors }}
+  </div>
+{% endif %}
+{% endblock content %}
