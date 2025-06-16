@@ -21,3 +21,30 @@
 /index.php
 # Ignore temp directory.
 /typo3temp/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Virtual environment
+venv/
+
+# Django DB and local settings
+db.sqlite3
+.env
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and OS files
+*.log
+*.DS_Store
+
+# Static/media if generated dynamically (optional)
+staticfiles/
+media/
+
