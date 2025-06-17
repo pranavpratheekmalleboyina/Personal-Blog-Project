@@ -44,7 +44,5 @@ db.sqlite3
 *.log
 *.DS_Store
 
-# Static/media if generated dynamically (optional)
-staticfiles/
-media/
-
+#Scripts used to just test migrations and configuration
+users/scripts
